@@ -1,0 +1,210 @@
+/* ======================
+   Variables globales
+   - Couleurs, rayon, gap, fonts centralisés pour faciliter les modifications.
+   ====================== */
+:root{
+  --bg: #0f1724;            /* fond principal */
+  --card: rgba(255,255,255,0.03);
+  --muted: #9aa6ad;         /* texte secondaire */
+  --text: #e6eef0;          /* texte principal */
+  --accent: #2dd4bf;        /* couleur principale */
+  --accent-2: #60a5fa;      /* couleur secondaire pour dégradés */
+  --glass: rgba(255,255,255,0.04);
+  --max-width: 1100px;
+  --radius: 14px;
+  --gap: 1.25rem;
+  font-size:16px;
+  line-height:1.5;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Box sizing + reset basique */
+*{box-sizing:border-box}
+html,body{height:100%}
+
+/* Corps de la page
+   - background composé pour un effet léger de profondeur
+   - text-smoothing pour meilleure lisibilité
+*/
+body{
+  margin:0;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(96,165,250,0.06), transparent 10%),
+              linear-gradient(180deg,#071024 0%, var(--bg) 100%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* ======================
+   Helpers d'accessibilité
+   - .visually-hidden : cacher visuellement mais garder accessible aux lecteurs d'écran
+   - .skip-link : lien pour sauter au contenu principal (important pour clavier/lecteurs d'écran)
+   ====================== */
+.visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+
+/* Skip link : caché par défaut, visible au focus clavier */
+.skip-link{
+  position:fixed;margin-top: 40px; left:1rem;top:1rem;background:var(--accent);color:#05202a;padding:0.5rem 0.75rem;border-radius:8px;z-index:999;transform:translateY(-120%);transition:transform .18s ease;
+}
+.skip-link:focus{transform:translateY(0);outline:3px solid rgba(45,212,191,0.18)}
+
+/* ======================
+   Container principal
+   - centre le contenu et limite la largeur maximale
+   ====================== */
+.container{
+  width:calc(100% - 2rem);
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:2rem 0;
+}
+
+/* ======================
+   Header (barre supérieure)
+   - sticky + backdrop-filter pour effet glass
+   - header-inner : flex layout aligné
+   ====================== */
+.site-header{
+  position:sticky;top:0;backdrop-filter:blur(6px);
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border-bottom:1px solid rgba(255,255,255,0.03);
+  z-index:50;
+}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;gap:var(--gap);padding:1rem 0;
+}
+.brand{display:flex;gap:0.75rem;align-items:center}
+/* avatar : coin arrondi pour un style moderne */
+.avatar{
+  width:25%;height:20%;border-radius:12px;object-fit:cover;border:1px solid rgba(255,255,255,0.06);
+}
+.brand h1{font-size:1.125rem;margin:0}
+.role{margin:0;font-size:0.9rem;color:var(--muted)}
+
+/* Navigation principale
+   - liens visibles et accessibles (hover + focus)
+*/
+.nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1rem;align-items:center}
+.nav a{text-decoration:none;color:var(--muted);padding:0.35rem 0.6rem;border-radius:8px;font-weight:600}
+.nav a:hover, .nav a:focus{color:var(--text);background:linear-gradient(90deg, rgba(45,212,191,0.06), rgba(96,165,250,0.04))}
+
+/* ======================
+   Hero (section d'intro)
+   - grid avec contenu à gauche et mockup à droite
+   - .eyebrow pour petit texte d'accroche
+   ====================== */
+.hero{padding:3.5rem 0 2.5rem;position:relative}
+.hero-grid{display:grid;grid-template-columns:1fr 360px;gap:2rem;align-items:center}
+.eyebrow{color:var(--accent);font-weight:700;margin:0 0 0.5rem}
+.hero-content h2{font-size:2.1rem;margin:0 0 0.5rem}
+.lead{color:var(--muted);margin:0 0 1rem}
+.hero-tags{display:flex;gap:0.5rem;margin-top:1rem;padding:0;list-style:none}
+.hero-tags li{background:var(--glass);padding:0.35rem 0.6rem;border-radius:999px;color:var(--muted);font-weight:600;font-size:0.85rem}
+
+/* Mockup visuel
+   - purely decorative (aria-hidden sur le container dans HTML)
+*/
+.hero-visual .device-mockup{
+  width:100%;height:240px;border-radius:18px;background:
+  linear-gradient(135deg, rgba(45,212,191,0.12), rgba(96,165,250,0.08));
+  box-shadow: 0 12px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+  display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+}
+.device-mockup::before{
+  content:"";position:absolute;left:-10%;top:-20%;width:60%;height:200%;background:radial-gradient(circle at 30% 30%, rgba(255,255,255,0.03), transparent 20%);transform:rotate(-15deg)
+}
+.mockup-dot{width:80px;height:80px;border-radius:12px;background:linear-gradient(180deg,var(--accent),var(--accent-2));box-shadow:0 10px 30px rgba(96,165,250,0.14)}
+
+/* ======================
+   Buttons
+   - design visible, bonne taille pour tap targets
+   ====================== */
+.btn{display:inline-block;padding:0.6rem 1rem;border-radius:10px;text-decoration:none;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#04212a;font-weight:700;box-shadow:0 8px 24px rgba(2,6,23,0.45)}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(255,255,255,0.06)}
+.btn:focus{outline:3px solid rgba(96,165,250,0.12);outline-offset:3px}
+
+/* ======================
+   About & Skills
+   - skills en badges avec icônes (placer icônes SVG dans assets/icons/)
+   - vérifier alt des images pour a11y
+   ====================== */
+.about, .skills{margin-top:1.5rem}
+.skills .skill-list{display:flex;flex-wrap:wrap;gap:0.6rem;padding:0;margin:0;list-style:none}
+.skill{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  padding:0.45rem 0.7rem;border-radius:999px;font-size:0.9rem;color:var(--muted);
+  border:1px solid rgba(255,255,255,0.02);
+}
+.skill-icon{
+  width:20px;
+  height:20px;
+  vertical-align:middle;
+  margin-right:0.5rem;
+  display:inline-block;
+}
+/* ======================
+   Projects grid
+   - cartes avec hover/transition pour micro-interactions
+   - card-media : espace visuel pour image ou couleur
+   ====================== */
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem;
+  margin-top:1rem;
+}
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:12px;
+  box-shadow: 0 10px 28px rgba(2,6,23,0.6);
+  overflow:hidden;display:flex;flex-direction:column;min-height:220px;transition:transform .22s ease,box-shadow .22s ease;
+}
+.card:hover, .card:focus-within{transform:translateY(-6px);box-shadow:0 18px 48px rgba(2,6,23,0.7)}
+.card-media{height:120px;background:linear-gradient(135deg, rgba(45,212,191,0.12), rgba(96,165,250,0.06));display:block;border-bottom:1px solid rgba(255,255,255,0.02)}
+.card-body{padding:1rem;flex:1;display:flex;flex-direction:column;gap:0.5rem}
+.card h4{margin:0 0 0.25rem}
+.card p{margin:0;color:var(--muted)}
+.card-actions{margin-top:auto;display:flex;gap:0.6rem}
+.link{text-decoration:none;color:var(--accent);font-weight:700}
+
+/* ======================
+   Contact & Footer
+   - téléphone et links : utiliser tel: et wa.me/237... (déjà ajoutés dans HTML)
+   ====================== */
+.contact p{color:var(--muted)}
+.site-footer{padding:1.2rem 0;border-top:1px solid rgba(255,255,255,0.02);text-align:center;color:var(--muted)}
+
+/* ======================
+   Responsive breakpoints
+   - adapter les colonnes et tailles pour tablettes / mobiles
+   ====================== */
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr 300px}
+  .projects-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-content h2{font-size:1.8rem}
+}
+@media (max-width:620px){
+  .header-inner{flex-direction:column;align-items:flex-start}
+  .nav ul{flex-wrap:wrap}
+  .projects-grid{grid-template-columns:1fr}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-visual{order:-1;margin-bottom:1rem}
+  .container{padding:1rem 0}
+}
+
+/* ======================
+   Focus styles (pour utilisateurs clavier)
+   - :focus-visible permet de n'afficher outline que pour navigation clavier
+   ====================== */
+:focus{outline:none}
+:focus-visible{outline:3px solid rgba(96,165,250,0.18);outline-offset:3px;border-radius:6px}
+
+/* ======================
+   Impression
+   - masquer éléments purement UI pour l'impression
+   ====================== */
+@media print{
+  body{color:#000;background:#fff}
+  .site-header,.site-footer,.nav,.cta,.hero-visual{display:none}
+  .container{width:100%;max-width:none;padding:0}
+}

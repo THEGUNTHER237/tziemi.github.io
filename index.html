@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nom Prénom — Développeur</title>
+  <meta name="description" content="Portfolio de Nom Prénom, développeur front-end. HTML & CSS uniquement." />
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="pp.jpg" alt="TZIEMI" class="avatar"  />
+        <div>
+          <h1> TZIEMI NGUIMDOP LEONEL</h1>
+          <p class="role">Développeur </p>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="#about">À propos</a></li>
+          <li><a href="#skills">Compétences</a></li>
+          <li><a href="#projects">Projets</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="hero" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <p class="eyebrow">Bonjour — je suis</p>
+          <h2>TZIEMI NGUIMDOP LEONEL</h2>
+          <!-- ...existing code... -->
+            <p>Développeur backend passionné, j'aime concevoir des architectures fiables et performantes, optimiser les échanges et garantir la sécurité .</p>
+            <!-- ...existing code... -->
+          <p class="cta">
+            <a class="btn" href="#projects">Voir mes projets</a>
+            <a class="btn ghost" href="#contact">Me contacter</a>
+          </p>
+          <ul class="hero-tags" aria-hidden="true">
+            <li>Interaction avec les Bases de Donnée</li><li>Manipulation des Données</li>
+          </ul>
+        </div>
+
+        <figure class="hero-visual" aria-hidden="true">
+          <div class="device-mockup"> 
+            <span class="mockup-dot"></span>
+          </div>
+          <figcaption class="visually-hidden">Aperçu d'interface</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="about" class="container about">
+      <h3>À propos</h3>
+      <p>Développeur passionné par le backend, l'accessibilité et les performances. J'aime construire des sites rapides.</p>
+    </section>
+
+    <section id="skills" class="container skills">
+      <h3>Compétences</h3>
+      <ul class="skill-list" aria-label="Liste de compétences">
+        <li class="skill">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="Logo PHP" class="skill-icon">
+          PHP
+        </li>
+        <li class="skill">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="Logo HTML5" class="skill-icon">
+          HTML5
+        </li>
+        <li class="skill">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="Logo CSS3" class="skill-icon">
+          CSS3
+        </li>
+        <li class="skill">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="Logo JavaScript" class="skill-icon">
+          JavaScript
+        </li>
+        <li class="skill">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vbnet/vbnet-plain.svg" alt="Logo VB.NET" class="skill-icon">
+          VB.NET
+        </li>
+      </ul>
+    </section>
+
+    <section id="projects" class="container projects">
+      <h3>Projets</h3>
+      <div class="projects-grid">
+        <article class="card">
+          <div class="card-media" role="img" aria-label="Aperçu projet 1"></div>
+          <div class="card-body">
+            <h4>Site Dynamique de gestion des instituts universitaires</h4>
+            <p>Application web pour gérer inscriptions, personnel, cours et emplois du temps avec authentification, gestion des rôles (admin/enseignant/étudiant) et export des données.</p>
+            <p>Bonnes pratiques et technique : architecture modulaire (séparation présentation/logiciel/données), validation côté serveur, optimisation des requêtes pour la scalabilité et logs d'activité pour audit. Peut être implémenté en PHP/MySQL ou en .NET selon le besoin.</p>
+            <p class="card-actions">
+              <a class="link" href="#">Détails</a>
+              <a class="link" href="#">Code</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media" role="img" aria-label="Aperçu projet 2"></div>
+          <div class="card-body">
+            <h4>Site Dynamique de gestion des ecole</h4>
+            <p>Application conçue pour centraliser la gestion administrative d'une école : suivi des inscriptions, gestion du personnel et des enseignants, création et planification des cours, génération automatique des emplois du temps et rapports. Le système propose une authentification sécurisée, contrôle d'accès par rôles.</p>
+            <p>Bonnes pratiques et technique : architecture modulaire (séparation présentation/logiciel/données), validation côté serveur, optimisation des requêtes pour la scalabilité et logs d'activité pour audit. Peut être implémenté en PHP/MySQL ou en .NET selon le besoin.</p>
+            <p class="card-actions">
+              <a class="link" href="#">Détails</a>
+              <a class="link" href="#">Code</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media" role="img" aria-label="Aperçu projet 3"></div>
+          <div class="card-body">
+            <h4>Site de Gestion des Concours</h4>
+            <p>Bonnes pratiques et technique : architecture modulaire (séparation présentation/logiciel/données), validation côté serveur, optimisation des requêtes pour la scalabilité et logs d'activité pour audit. Peut être implémenté en PHP/MySQL ou en .NET selon le besoin.</p>
+            <p class="card-actions">
+              <a class="link" href="#">Détails</a>
+              <a class="link" href="#">Code</a>
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="container contact">
+      <h3>Contact</h3>
+      <p>Téléphone : <a href="tel:+237652320149">+237652320149</a> — <a href="https://wa.me/237652320149" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
+      <p>Envoyez un message : <a href="mailto:tziemileo@gmail.com">tziemileo@gmail.com</a></p>
+      <p>Réseaux : 
+        <a href="#" aria-label="Voir le profil GitHub">GitHub</a> — 
+        <a href="#" aria-label="Voir le profil LinkedIn">LinkedIn</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>© 2025 TZIEMI NGUIMDOP LEONEL — Tous droits réservés.</p>
+    </div>
+  </footer>
+</body>
+</html>
